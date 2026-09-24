@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+logs/*.log
+mlruns/
+.dvc/cache/
+.dvc/local-remote/
+.dvc/config.local
+.env
+/models

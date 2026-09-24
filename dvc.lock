@@ -1,0 +1,31 @@
+schema: '2.0'
+stages:
+  artifacts:
+    cmd: "python -c \"from pathlib import Path; required=['final_model.joblib','num_imputer.joblib','state_encoder.joblib','scaler.joblib','feature_list.txt','promotion_metrics.yaml'];
+      missing=[name for name in required if not (Path('models') / name).is_file()];
+      assert not missing, 'Missing production artifacts: ' + ', '.join(missing)\""
+    deps:
+    - path: models/feature_list.txt
+      hash: md5
+      md5: 451895420d634d55a7d16192e112507d
+      size: 755
+    - path: models/final_model.joblib
+      hash: md5
+      md5: 68cd865bf9483d6da49488c8863b10f2
+      size: 2431
+    - path: models/num_imputer.joblib
+      hash: md5
+      md5: 7b5a37a02a43c79a2bc3934afc437c10
+      size: 951
+    - path: models/promotion_metrics.yaml
+      hash: md5
+      md5: e033b2fadf02d5b19d182ec6e6f1865f
+      size: 227
+    - path: models/scaler.joblib
+      hash: md5
+      md5: 048b323202453e9987d11f2acb91d07b
+      size: 1567
+    - path: models/state_encoder.joblib
+      hash: md5
+      md5: 746e170eb743aaa25ce4793e95e72785
+      size: 1311

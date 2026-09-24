@@ -1,0 +1,65 @@
+# Model artifacts paths
+model:
+  path: "models/final_model.joblib"
+  version: "v2.0.0"
+  decision_threshold: 0.69
+
+transformers:
+  imputer_path: "models/num_imputer.joblib"
+  encoder_path: "models/state_encoder.joblib"
+  scaler_path: "models/scaler.joblib"
+  feature_list_path: "models/feature_list.txt"
+
+# Feature columns used by the model
+features:
+  numerical_cols:
+    - "n_items"
+    - "total_price"
+    - "total_freight"
+    - "total_payment_value"
+    - "n_payments"
+    - "max_installments"
+
+  scale_cols:
+    - "customer_zip_code_prefix"
+    - "n_items"
+    - "total_price"
+    - "total_freight"
+    - "total_payment_value"
+    - "n_payments"
+    - "max_installments"
+    - "order_month"
+    - "order_weekday"
+    - "estimated_days"
+    - "order_year"
+    - "order_month_sin"
+    - "order_month_cos"
+    - "order_weekday_sin"
+    - "order_weekday_cos"
+
+  categorical_col: "customer_state"
+
+# API settings
+api:
+  host: "0.0.0.0"
+  port: 8000
+
+# Logging
+logging:
+  level: "INFO"
+  log_file: "logs/prediction.log"
+
+validation:
+  max_batch_size: 100
+  allowed_states: []
+  great_expectations_enabled: false
+
+storage:
+  database_url: ""
+  prediction_table: "prediction_logs"
+
+tracking:
+  enabled: false
+  uri: ""
+  experiment_name: "olist-delivery-prediction"
+  registered_model_name: "olist-delivery-model"

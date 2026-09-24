@@ -1,0 +1,11 @@
+stages:
+  artifacts:
+    cmd: >-
+      python -c "from pathlib import Path; required=['final_model.joblib','num_imputer.joblib','state_encoder.joblib','scaler.joblib','feature_list.txt','promotion_metrics.yaml']; missing=[name for name in required if not (Path('models') / name).is_file()]; assert not missing, 'Missing production artifacts: ' + ', '.join(missing)"
+    deps:
+      - models/final_model.joblib
+      - models/num_imputer.joblib
+      - models/state_encoder.joblib
+      - models/scaler.joblib
+      - models/feature_list.txt
+      - models/promotion_metrics.yaml

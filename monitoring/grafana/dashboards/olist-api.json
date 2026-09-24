@@ -1,0 +1,27 @@
+{
+  "annotations": {"list": []},
+  "editable": false,
+  "panels": [
+    {
+      "title": "HTTP requests",
+      "type": "stat",
+      "targets": [{"expr": "olist_http_requests_total", "refId": "A"}],
+      "gridPos": {"h": 4, "w": 8, "x": 0, "y": 0}
+    },
+    {
+      "title": "Prediction results",
+      "type": "timeseries",
+      "targets": [{"expr": "olist_predictions_total", "refId": "A"}],
+      "gridPos": {"h": 8, "w": 16, "x": 8, "y": 0}
+    },
+    {
+      "title": "Average latency seconds",
+      "type": "timeseries",
+      "targets": [{"expr": "olist_prediction_latency_seconds", "refId": "A"}],
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 4}
+    }
+  ],
+  "schemaVersion": 39,
+  "title": "Olist Delivery API",
+  "version": 1
+}
